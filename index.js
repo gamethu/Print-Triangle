@@ -3,8 +3,6 @@ function VeTamGiacCan(){
     const vungve = document.getElementById('vungve');
     const vungtinh = document.getElementById('vungtinh');
     vungve.textContent = '';
-    // vungve.style.textAlign = 'center';
-    // vungve.style.float = 'left';
 
 
     let chieuCao = 0;
@@ -15,17 +13,17 @@ function VeTamGiacCan(){
     let indexFirst = 0;
     let indexLast = 0;
 
-    let wide = length + length -1;
+    let wide =  length*2 -1;
     let value = 0;
     let size = 1;
     
-    vungve.innerHTML += '<table>';
+    let output ='';
+    output += '<table>';
     for(let i=0;i<length;i++) {
-        vungve.innerHTML += '<tr>';
+        output += '<tr>';
 
         for (let j=0;j<=(wide-size)/2-1;j++) {
-            const th = document.createElement('th');
-            vungve.appendChild(th);
+            output += '<td></td>';
         }
 
         for (let k=(wide-size)/2 ;k<=(wide+size)/2 - 1;k++) {
@@ -39,24 +37,24 @@ function VeTamGiacCan(){
                 chieuCao += (indexFirst + indexLast) / 2;
             }
             if (i == length-1) canhDay += value;
-
-            const th = document.createElement('th');
-            th.textContent = `${value++}`;
-            vungve.appendChild(th);
+            if (i%2!=0)output += '<th class="odd">' + value++ + '</th>';
+            else output += '<th class="even">' + value++ + '</th>';
         }
 
         for (let l=(wide+size)/2;l<wide;l++) {
-            const th = document.createElement('th');
-            vungve.appendChild(th);
+            output += '<td></td>';
         }
 
-        vungve.innerHTML += '</tr><br>';
+        output += '</tr>';
+        
 
         indexFirst = 0;
         indexLast = 0;
-        size +=2;
+        size += 2;
     }
-    vungve.innerHTML += '</table>';
+    output += '</table>';
+    vungve.innerHTML = output;
+
 
     vungtinh.textContent = '';
     vungtinh.append('Tổng chiều cao: ' + chieuCao);
@@ -75,8 +73,6 @@ function VeTamGiacVuong(){
     const vungve = document.getElementById('vungve');
     const vungtinh = document.getElementById('vungtinh');
     vungve.textContent = '';
-    // vungve.style.textAlign = '';
-    // vungve.style.float = 'left';
 
 
     let chieuCao = 0;
@@ -88,35 +84,44 @@ function VeTamGiacVuong(){
     let indexLast = 0;
 
     let value = 0;
-    let size = 1;
-    for(let i=1;i<=length;i++) {
-        for (let j=1;j<=size;j++) {
-            if (j==1) {
+
+    let output ='';
+    output += '<table>';
+    for(let i=0;i<length;i++) {
+        output += '<tr>';
+
+        for (let j=0;j<=i;j++) {
+            if (j==0) {
                 cheoTrai += value;
                 indexFirst += value;
             }
-            if (j==size) {
+            if (j==i) {
                 cheoPhai += value;
                 indexLast += value;
                 chieuCao += (indexFirst + indexLast) / 2;
             }
-            if (i==length) canhDay += value;
-
-            vungve.append(value++);
-            vungve.append(" ");
+            if (i == length-1) canhDay += value;
+            if (i%2!=0)output += '<th class="odd">' + value++ + '</th>';
+            else output += '<th class="even">' + value++ + '</th>';
         }
-        vungve.innerHTML += '<br>';
+
+        for (let k=j;k<length;l++) {
+            output += '<td></td>';
+        }
+
+        output += '</tr>';
+        
 
         indexFirst = 0;
         indexLast = 0;
-        size +=1;
     }
+    output += '</table>';
+    vungve.innerHTML = output;
+
 
     vungtinh.textContent = '';
     vungtinh.append('Tổng chiều cao: ' + chieuCao);
     vungtinh.innerHTML += '<br>';
-    // vungtinh.append('Tổng đường chéo trái: ' + cheoTrai);
-    // vungtinh.innerHTML += '<br>';
     vungtinh.append('Tổng cạnh huyền: ' + cheoPhai);
     vungtinh.innerHTML += '<br>';
     vungtinh.append('Tổng cạnh đáy: ' + canhDay);
