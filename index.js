@@ -92,20 +92,19 @@ function VeTamGiacVuong(){
 
         for (let j=0;j<=i;j++) {
             if (j==0) {
-                cheoTrai += value;
+                chieuCao += value;
                 indexFirst += value;
             }
             if (j==i) {
                 cheoPhai += value;
                 indexLast += value;
-                chieuCao += (indexFirst + indexLast) / 2;
             }
             if (i == length-1) canhDay += value;
             if (i%2!=0)output += '<th class="odd">' + value++ + '</th>';
             else output += '<th class="even">' + value++ + '</th>';
         }
 
-        for (let k=j;k<length;l++) {
+        for (let k=j;k<length;k++) {
             output += '<td></td>';
         }
 
