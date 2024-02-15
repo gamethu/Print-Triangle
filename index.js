@@ -76,7 +76,6 @@ function VeTamGiacVuong(){
 
 
     let chieuCao = 0;
-    let cheoTrai = 0;
     let cheoPhai = 0;
     let canhDay = 0;
 
@@ -87,6 +86,7 @@ function VeTamGiacVuong(){
 
     let output ='';
     output += '<table>';
+
     for(let i=0;i<length;i++) {
         output += '<tr>';
 
@@ -104,7 +104,7 @@ function VeTamGiacVuong(){
             else output += '<th class="even">' + value++ + '</th>';
         }
 
-        for (let k=j;k<length;k++) {
+        for (let k=i+1;k<length;k++) {
             output += '<td></td>';
         }
 
