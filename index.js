@@ -76,11 +76,8 @@ function VeTamGiacVuong(){
 
 
     let chieuCao = 0;
-    let cheoPhai = 0;
+    let canhHuyen = 0;
     let canhDay = 0;
-
-    let indexFirst = 0;
-    let indexLast = 0;
 
     let value = 0;
 
@@ -91,14 +88,8 @@ function VeTamGiacVuong(){
         output += '<tr>';
 
         for (let j=0;j<=i;j++) {
-            if (j==0) {
-                chieuCao += value;
-                indexFirst += value;
-            }
-            if (j==i) {
-                cheoPhai += value;
-                indexLast += value;
-            }
+            if (j==0) chieuCao += value;
+            if (j==i) canhHuyen += value;
             if (i == length-1) canhDay += value;
             if (i%2!=0)output += '<th class="odd">' + value++ + '</th>';
             else output += '<th class="even">' + value++ + '</th>';
@@ -121,7 +112,7 @@ function VeTamGiacVuong(){
     vungtinh.textContent = '';
     vungtinh.append('Tổng chiều cao: ' + chieuCao);
     vungtinh.innerHTML += '<br>';
-    vungtinh.append('Tổng cạnh huyền: ' + cheoPhai);
+    vungtinh.append('Tổng cạnh huyền: ' + canhHuyen);
     vungtinh.innerHTML += '<br>';
     vungtinh.append('Tổng cạnh đáy: ' + canhDay);
     vungtinh.innerHTML += '<br>';
