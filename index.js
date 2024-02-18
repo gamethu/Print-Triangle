@@ -52,7 +52,7 @@ function VeTamGiacCan(){
         indexLast = 0;
         size += 2;
     }
-    output += '</table>';
+    output += '</table><br>';
     vungve.innerHTML = output;
 
 
@@ -105,7 +105,7 @@ function VeTamGiacVuong(){
         indexFirst = 0;
         indexLast = 0;
     }
-    output += '</table>';
+    output += '</table><br>';
     vungve.innerHTML = output;
 
 
