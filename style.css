@@ -1,16 +1,38 @@
-.odd {
-    background-color: lightpink;
-}
-
-.even {
-    background-color: lightblue;
-}
-
 table {
     border-collapse: collapse;
     text-align:center;
 }
 th {
-    /* border:1px solid black; */
-    width: 50px;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+}
+
+div.none {
+    width: 60px;
+    height: 60px;
+    background-color: tomato;
+}
+div.chop {
+    margin-top: 35px;
+    margin-bottom: auto;
+    width: 0;
+    height: 0;
+    border: 30px solid;
+    border-width: 0 30px 30px 30px;
+    border-color: transparent transparent tomato transparent;
+}
+div.firstIndex {
+    padding: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 60px solid tomato;
+    border-left: 60px solid transparent;
+}
+
+div.lastIndex {
+    width: 0;
+    height: 0;
+    border-bottom: 60px solid tomato;
+    border-right: 60px solid transparent;
 }

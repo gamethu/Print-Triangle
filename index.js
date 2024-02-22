@@ -37,8 +37,13 @@ function VeTamGiacCan(){
                 chieuCao += (indexFirst + indexLast) / 2;
             }
             if (i == length-1) canhDay += value;
-            if (i%2!=0)output += '<th class="odd">' + value++ + '</th>';
-            else output += '<th class="even">' + value++ + '</th>';
+
+            if ((k==(wide-size)/2) && i==0) output += '<th><div class="chop">' + '</div></th>';
+            else if (k==(wide-size)/2) output += '<th><div class="firstIndex">' + '</div></th>';
+            else if (k==(wide+size)/2 - 1) output += '<th><div class="lastIndex">' + '</div></th>';
+            else output += '<th><div class="none">' + '</div></th>';
+
+            value++;
         }
 
         for (let l=(wide+size)/2;l<wide;l++) {
@@ -91,8 +96,10 @@ function VeTamGiacVuong(){
             if (j==0) chieuCao += value;
             if (j==i) canhHuyen += value;
             if (i == length-1) canhDay += value;
-            if (i%2!=0)output += '<th class="odd">' + value++ + '</th>';
-            else output += '<th class="even">' + value++ + '</th>';
+            if (j==i)output += '<th><div class="lastIndex">' + '</div></th>';
+            else output += '<th><div class="none">' + '</div></th>';
+
+            value++;
         }
 
         for (let k=i+1;k<length;k++) {
